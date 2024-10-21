@@ -42,9 +42,9 @@ remove_files(7)
   
 
 
-
-st.markdown("<h1 style='text-align: center; color:#c97068;'>Reconocimiento de Textos</h1>", unsafe_allow_html=True)
 image = Image.open('robot.jpg')
+st.markdown("<h1 style='text-align: center; color:#c97068;'>Reconocimiento de Textos</h1>", unsafe_allow_html=True)
+
 st.subheader("El reconocimento optico de textos en imagenes. Elige la imágen, esta puede ser en cámara o cargando un archivo.")
 
 cam_ = st.checkbox("_Usar Cámara_")
