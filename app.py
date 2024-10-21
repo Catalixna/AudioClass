@@ -43,21 +43,21 @@ remove_files(7)
 
 
 
-st.title("Reconocimiento Óptico de Caracteres")
-st.subheader("Elige la fuente de la imágen, esta puede venir de la cámara o cargando un archivo")
+st.markdown("<h1 style='text-align: center; color:#c97068;'>Reconocimiento de Textos</h1>", unsafe_allow_html=True)
+st.subheader("El reconocimento optico de textos en imagenes. Elige la imágen, esta puede ser en cámara o cargando un archivo.")
 
-cam_ = st.checkbox("Usar Cámara")
+cam_ = st.checkbox("_Usar Cámara_")
 
 if cam_ :
-   img_file_buffer = st.camera_input("Toma una Foto")
+   img_file_buffer = st.camera_input("_Toma una Foto_")
 else :
    img_file_buffer = None
    
 with st.sidebar:
       st.subheader("Procesamiento para Cámara")
-      filtro = st.radio("Filtro para imagen con cámara",('Sí', 'No'))
+      filtro = st.radio("_Filtro para imagen con cámara_",('Sí', 'No'))
 
-bg_image = st.file_uploader("Cargar Imagen:", type=["png", "jpg"])
+bg_image = st.file_uploader("_Cargar Imagen:_", type=["png", "jpg"])
 if bg_image is not None:
     uploaded_file=bg_image
     st.image(uploaded_file, caption='Imagen cargada.', use_column_width=True)
@@ -101,7 +101,7 @@ with st.sidebar:
       
       #text = st.text_input("Enter text")
       in_lang = st.selectbox(
-          "Seleccione el lenguaje de entrada",
+          "_¿Que idoma es?_",
           ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones"),
       )
       if in_lang == "Ingles":
@@ -118,7 +118,7 @@ with st.sidebar:
           input_language = "ja"
       
       out_lang = st.selectbox(
-          "Select your output language",
+          "_¿Que idioma quieres?_",
           ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones"),
       )
       if out_lang == "Ingles":
@@ -135,7 +135,7 @@ with st.sidebar:
           output_language = "ja"
       
       english_accent = st.selectbox(
-          "Seleccione el acento",
+          "_Idioma_",
           (
               "Default",
               "India",
@@ -166,9 +166,9 @@ with st.sidebar:
       elif english_accent == "South Africa":
           tld = "co.za"
 
-      display_output_text = st.checkbox("Mostrar texto")
+      display_output_text = st.checkbox("_Mostrar texto_")
 
-      if st.button("convert"):
+      if st.button("Convertir"):
           result, output_text = text_to_speech(input_language, output_language, text, tld)
           audio_file = open(f"temp/{result}.mp3", "rb")
           audio_bytes = audio_file.read()
